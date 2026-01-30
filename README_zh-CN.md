@@ -82,3 +82,11 @@ edgeone pages deploy
 - **TanStack Start**：[官方文档](https://tanstack.com/start/latest)
 - **TanStack Router**：[官方文档](https://tanstack.com/router/latest)
 - **EdgeOne Pages**：[产品文档](https://pages.edgeone.ai/zh/document/framework-tanstack-start)
+
+## 部署
+
+一键部署此项目到 EdgeOne Pages：
+
+[![Deploy with EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?from=github&template=tanstack-start-template)
+
+更多模板：[EdgeOne Pages 模板](https://edgeone.ai/pages/templates)

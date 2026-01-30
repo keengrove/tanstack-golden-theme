@@ -82,3 +82,11 @@ For more details, see the [EdgeOne Pages Documentation](https://pages.edgeone.ai
 - **TanStack Start**: [Documentation](https://tanstack.com/start/latest)
 - **TanStack Router**: [Documentation](https://tanstack.com/router/latest)
 - **EdgeOne Pages**: [Documentation](https://pages.edgeone.ai/document/framework-tanstack-start)
+
+## Deploy
+
+Deploy this project to EdgeOne Pages with one click:
+
+[![Deploy with EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?from=github&template=tanstack-start-template)
+
+More Templates: [EdgeOne Pages Templates](https://edgeone.ai/pages/templates)
