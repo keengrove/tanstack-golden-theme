@@ -87,6 +87,6 @@ edgeone pages deploy
 
 一键将该项目部署到 EdgeOne Pages：
 
-[![Deploy with EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?from=github&template=tanstack-start-template)
+[![Deploy with EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://console.cloud.tencent.com/edgeone/pages/new?from=github&template=tanstack-start-template)
 
 更多模板：[EdgeOne Pages 模板](https://pages.edgeone.ai/templates)
