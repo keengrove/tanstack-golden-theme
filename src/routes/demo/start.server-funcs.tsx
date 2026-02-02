@@ -1,77 +1,92 @@
-import fs from 'node:fs'
-import { useCallback, useState } from 'react'
-import { createFileRoute, useRouter } from '@tanstack/react-router'
-import { createServerFn } from '@tanstack/react-start'
+import { useCallback, useEffect, useState } from "react";
+import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 
-/*
-const loggingMiddleware = createMiddleware().server(
-  async ({ next, request }) => {
-    console.log("Request:", request.url);
-    return next();
-  }
-);
-const loggedServerFunction = createServerFn({ method: "GET" }).middleware([
-  loggingMiddleware,
-]);
-*/
-
-const TODOS_FILE = 'todos.json'
-
-async function readTodos() {
-  return JSON.parse(
-    await fs.promises.readFile(TODOS_FILE, 'utf-8').catch(() =>
-      JSON.stringify(
-        [
-          { id: 1, name: 'Get groceries' },
-          { id: 2, name: 'Buy a new phone' },
-        ],
-        null,
-        2,
-      ),
-    ),
-  )
+interface Todo {
+  id: number;
+  name: string;
 }
 
+const STORAGE_KEY = "tanstack-start.todos";
+const DEFAULT_TODOS: Todo[] = [
+  { id: 1, name: "Get groceries" },
+  { id: 2, name: "Buy a new phone" },
+];
+
 const getTodos = createServerFn({
-  method: 'GET',
-}).handler(async () => await readTodos())
+  method: "GET",
+}).handler(async () => {
+  return DEFAULT_TODOS;
+});
 
-const addTodo = createServerFn({ method: 'POST' })
-  .inputValidator((d: string) => d)
+const addTodo = createServerFn({ method: "POST" })
+  .inputValidator((d: string) => d.trim())
   .handler(async ({ data }) => {
-    const todos = await readTodos()
-    todos.push({ id: todos.length + 1, name: data })
-    await fs.promises.writeFile(TODOS_FILE, JSON.stringify(todos, null, 2))
-    return todos
-  })
+    if (!data) {
+      throw new Error("Todo name is required");
+    }
 
-export const Route = createFileRoute('/demo/start/server-funcs')({
+    const newTodo: Todo = {
+      id: Date.now(),
+      name: data,
+    };
+
+    return newTodo;
+  });
+
+export const Route = createFileRoute("/demo/start/server-funcs")({
   component: Home,
   loader: async () => await getTodos(),
-})
+});
 
 function Home() {
-  const router = useRouter()
-  let todos = Route.useLoaderData()
+  const router = useRouter();
+  const initialTodos = Route.useLoaderData();
 
-  const [todo, setTodo] = useState('')
+  const [todos, setTodos] = useState<Todo[]>(initialTodos ?? []);
+  const [todo, setTodo] = useState("");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        setTodos(JSON.parse(raw) as Todo[]);
+        return;
+      }
+      setTodos(DEFAULT_TODOS);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_TODOS));
+    } catch {
+      setTodos(DEFAULT_TODOS);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+    } catch {
+      // ignore storage errors
+    }
+  }, [todos]);
 
   const submitTodo = useCallback(async () => {
-    todos = await addTodo({ data: todo })
-    setTodo('')
-    router.invalidate()
-  }, [addTodo, todo])
+    const newTodo = await addTodo({ data: todo });
+    setTodos((prev) => [...prev, newTodo]);
+    setTodo("");
+    router.invalidate();
+  }, [addTodo, todo, router]);
 
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-gradient-to-br from-zinc-800 to-black p-4 text-white"
       style={{
         backgroundImage:
-          'radial-gradient(50% 50% at 20% 60%, #23272a 0%, #18181b 50%, #000000 100%)',
+          "radial-gradient(50% 50% at 20% 60%, #23272a 0%, #18181b 50%, #000000 100%)",
       }}
     >
       <div className="w-full max-w-2xl p-8 rounded-xl backdrop-blur-md bg-black/50 shadow-xl border-8 border-black/10">
-        <h1 className="text-2xl mb-4">Start Server Functions - Todo Example</h1>
+        <h1 className="text-2xl mb-2">Start Server Functions - Todo Example</h1>
         <ul className="mb-4 space-y-2">
           {todos?.map((t) => (
             <li
@@ -88,8 +103,8 @@ function Home() {
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                submitTodo()
+              if (e.key === "Enter") {
+                submitTodo();
               }
             }}
             placeholder="Enter a new todo..."
@@ -105,5 +120,5 @@ function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }

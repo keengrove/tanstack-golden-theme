@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@edgeone/tanstack-start':
-        specifier: ^1.0.6
-        version: 1.0.6(@tanstack/react-start@1.157.16(crossws@0.4.4(srvx@0.10.1))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)))(rollup@4.57.0)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
+        specifier: ^1.0.8
+        version: 1.0.8(@tanstack/react-start@1.157.16(crossws@0.4.4(srvx@0.10.1))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)))(rollup@4.57.0)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
       '@tailwindcss/vite':
         specifier: ^4.0.6
         version: 4.1.18(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
@@ -233,15 +233,15 @@ packages:
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
 
-  '@edgeone/tanstack-start@1.0.6':
-    resolution: {integrity: sha512-DxcGb9Jk/XGE4xCZpIbjnnmAt4v1IXNNu08NXJGVtRVhdsDvhSZ49lgxY3bx0yy0A5C0l73eEeNpVwha4xvQ9A==}
+  '@edgeone/tanstack-start@1.0.8':
+    resolution: {integrity: sha512-7o5iHJW39Nv3UbvZpzyweuyTVLa3oWTRMC36TWLQPh6tTmDmHYbp4Yaiz4MBRAdAxLfY5e9jolNNwddoff8t7g==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@tanstack/react-start': ^1.0.0
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0
 
-  '@edgeone/vite-core@1.0.5':
-    resolution: {integrity: sha512-6dQOILwCRf/BhX3sd4B+QzkyZpuYw6nMRIygUC9pYwRf9Umq6OKgIpKCW78+KF9WwN/h5LoXworzijnOwM8aKQ==}
+  '@edgeone/vite-core@1.0.8':
+    resolution: {integrity: sha512-gbvS5P+yhFTolHe1nq2PqDaJauyYwupWw/g5pSgbp9X5jadqipY7pX1KufuGEjnnHXyQIekiTB4Tye1T41xQQg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0
@@ -2289,9 +2289,9 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.4': {}
 
-  '@edgeone/tanstack-start@1.0.6(@tanstack/react-start@1.157.16(crossws@0.4.4(srvx@0.10.1))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)))(rollup@4.57.0)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))':
+  '@edgeone/tanstack-start@1.0.8(@tanstack/react-start@1.157.16(crossws@0.4.4(srvx@0.10.1))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)))(rollup@4.57.0)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))':
     dependencies:
-      '@edgeone/vite-core': 1.0.5(rollup@4.57.0)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
+      '@edgeone/vite-core': 1.0.8(rollup@4.57.0)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
       '@tanstack/react-start': 1.157.16(crossws@0.4.4(srvx@0.10.1))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
       vite: 7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)
     transitivePeerDependencies:
@@ -2299,7 +2299,7 @@ snapshots:
       - rollup
       - supports-color
 
-  '@edgeone/vite-core@1.0.5(rollup@4.57.0)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))':
+  '@edgeone/vite-core@1.0.8(rollup@4.57.0)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))':
     dependencies:
       '@vercel/nft': 1.3.0(rollup@4.57.0)
       esbuild: 0.20.2
