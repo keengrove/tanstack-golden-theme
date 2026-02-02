@@ -1,7 +1,5 @@
 ## TanStack Start Mix Render Template
 
-**English** | [简体中文](./README_zh-CN.md)
-
 A hybrid rendering starter built with **TanStack Start** and **TanStack Router**, featuring SSR/SPA data-loading demos, server functions, and API routes, with **EdgeOne** adapter support.
 
 ## Features

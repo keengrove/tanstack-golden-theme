@@ -1,7 +1,5 @@
 ## TanStack Start Mix Render Template
 
-[English](./README.md) | **简体中文**
-
 基于 **TanStack Start** 与 **TanStack Router** 的混合渲染模板，内置 SSR/SPA 数据加载演示、Server Functions 与 API 路由示例，并集成 **EdgeOne** 适配器支持部署。
 
 ## 功能特性
