@@ -87,6 +87,6 @@ For more details, see the [EdgeOne Pages Documentation](https://pages.edgeone.ai
 
 Deploy this project to EdgeOne Pages with one click:
 
-[![Deploy with EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?from=github&template=tanstack-start-template)
+[![Deploy with EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?from=github&template=tanstack-start-mix-render-template)
 
 More Templates: [EdgeOne Pages Templates](https://pages.edgeone.ai/templates)
