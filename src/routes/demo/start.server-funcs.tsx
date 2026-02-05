@@ -45,6 +45,7 @@ function Home() {
 
   const [todos, setTodos] = useState<Todo[]>(initialTodos ?? []);
   const [todo, setTodo] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -71,11 +72,18 @@ function Home() {
   }, [todos]);
 
   const submitTodo = useCallback(async () => {
-    const newTodo = await addTodo({ data: todo });
-    setTodos((prev) => [...prev, newTodo]);
-    setTodo("");
-    router.invalidate();
-  }, [addTodo, todo, router]);
+    if (isSubmitting || !todo.trim()) return;
+    
+    setIsSubmitting(true);
+    try {
+      const newTodo = await addTodo({ data: todo });
+      setTodos((prev) => [...prev, newTodo]);
+      setTodo("");
+      router.invalidate();
+    } finally {
+      setIsSubmitting(false);
+    }
+  }, [todo, router, isSubmitting]);
 
   return (
     <div
@@ -111,11 +119,11 @@ function Home() {
             className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
           />
           <button
-            disabled={todo.trim().length === 0}
+            disabled={isSubmitting || todo.trim().length === 0}
             onClick={submitTodo}
             className="bg-blue-500 hover:bg-blue-600 disabled:bg-blue-500/50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
           >
-            Add todo
+            {isSubmitting ? "Adding..." : "Add todo"}
           </button>
         </div>
       </div>
